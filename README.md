@@ -1,1 +1,1 @@
-This is a application built using HTML, CSS, vanilla JS, the Soundcloud API, and Axios to fetch data in JS.
+This is a application built using HTML, CSS, vanilla JS, the Soundcloud API, Sequalizer ORM, and a postgres to store the user's played artist's.
