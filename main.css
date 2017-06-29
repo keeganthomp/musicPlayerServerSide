@@ -1,0 +1,188 @@
+body {
+  background-image: url('http://www.matcl.com/files/attach/images/2791205/856/808/002/441e661e5479d7b9f88afe3deb765110.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #F5F5F5;
+  font-family: 'Quicksand';
+  font-weight: 300;
+  margin: 0 15%;
+}
+
+.topWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 5rem;
+  margin: 20% 0 0 0;
+}
+
+.subTitle {
+  margin: 0;
+}
+
+.songTitle {
+  font-weight: 300;
+}
+
+.userName {
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+}
+
+audio {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.break {
+  width: 80%;
+}
+
+.searchBar {
+  border: none;
+  border-bottom: 1px solid white;
+  background: none;
+  color: white;
+  font-size: 1.5rem;
+  margin: 2% 0 2% 0;
+}
+
+.searchBar:focus {
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.searchBar::-webkit-input-placeholder {
+  color: lightgray;
+  text-transform: lowercase;
+  font-weight: 300;
+}
+
+.searchWrapper {
+  width: 75%;
+  display: flex;
+  text-align: center;
+  margin: 0 auto;
+  margin: 2% auto 2% auto;
+}
+
+.searchWrapper input {
+  flex: 4;
+  margin-right: 2%;
+  height: 2rem;
+}
+
+.searchWrapper .searchBtn {
+  flex: 1;
+  border-radius: 5px;
+  border: 1px solid white;
+  background: none;
+  color: white;
+  margin-top: 2.5%;
+}
+
+.searchBtn {
+  transition: background .5s ease;  
+}
+
+.searchBtn:focus{
+  outline: none;
+}
+
+.searchBtn:hover {
+  background: lightgray;
+  color: black;
+  transition: background .5s ease;
+}
+
+.nowPlaying {
+  text-align: left;
+  margin-left: 10%;
+  font-size: 10px;
+}
+
+.resultsTitle {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 3% 0;
+}
+
+.searchResults {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /*margin: 0 5% 0 5%;*/
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.trackWrapper {
+  width: calc(100% / 4);
+  margin: 0 2% 8% 2%;
+}
+
+.userImg {
+  width: 100%;
+}
+
+
+.userImg:hover {
+  cursor: pointer;
+  opacity: .2;
+  transition: all 1s;
+  z-index: 0;
+}
+
+.playButton {
+  position:relative;
+  top: 7rem;
+  opacity: 0;
+}
+
+.playButton:hover {
+  opacity: 1;
+  transition: all 2s;
+  z-index: 1;
+}
+
+.searchResultsSection {
+  margin: 0 auto;
+}
+
+.trackWrapper {
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .trackWrapper {
+    width: 40%;
+  }
+}
+
+@media (max-width: 550px) {
+  .trackWrapper {
+    width: 100%;
+  }
+
+  .searchWrapper {
+    flex-direction: column;
+  }
+
+  .searchBar {
+    text-align: center;
+  }
+
+  .searchBar::-webkit-input-placeholder {
+    text-align: center;
+  }
+}
