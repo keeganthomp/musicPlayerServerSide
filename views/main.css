@@ -1,11 +1,41 @@
 body {
-  background-image: url('http://www.matcl.com/files/attach/images/2791205/856/808/002/441e661e5479d7b9f88afe3deb765110.png');
+  /*background-image: url('http://www.matcl.com/files/attach/images/2791205/856/808/002/441e661e5479d7b9f88afe3deb765110.png');*/
+  background: gray;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-family: 'Quicksand';
   font-weight: 300;
   margin: 0 15%;
+}
+
+#favorite {
+  width: 2rem;
+  margin-bottom: -2%;
+  transition: all 1s;
+}
+
+.rotate {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transition: all 1s;
+  
+}
+
+.searchResultsFav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.trackWrapperFav {
+  width: 20%;
+  margin: 6%;
+}
+
+.favImg {
+  width: 13rem;
 }
 
 .topWrapper {
@@ -91,10 +121,10 @@ audio {
 }
 
 .searchBtn {
-  transition: background .5s ease;  
+  transition: background .5s ease;
 }
 
-.searchBtn:focus{
+.searchBtn:focus {
   outline: none;
 }
 
@@ -135,7 +165,6 @@ audio {
   width: 100%;
 }
 
-
 .userImg:hover {
   cursor: pointer;
   opacity: .2;
@@ -144,7 +173,7 @@ audio {
 }
 
 .playButton {
-  position:relative;
+  position: relative;
   top: 7rem;
   opacity: 0;
 }

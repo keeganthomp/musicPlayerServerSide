@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Wavves Audio</title>
+    <link rel="icon" type="image/png" href="https://d30y9cdsu7xlg0.cloudfront.net/png/51723-200.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="main.css" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen|Quicksand:300,400,500,700" rel="stylesheet">
+</head>
+
+<body>
+    <div class="siteWrapper">
+        <div class="topWrapper">
+            <h1 class="title">WAVVES</h1>
+            <p class="subTitle">Clean.Simple.Beautiful.Audio
+                <p>
+                    <audio id="audioController" class="hidden" controls="controls" autoplay="true">
+                        <source id="audioSource" src="" type="audio/ogg" />
+                        <!--<source src="" type="audio/mpeg" /> Your browser does not support the audio element.-->
+                    </audio>
+                    <p class="nowPlaying"><span id="artistPlaying"></span><span id="songPlayingNow"></span><img src="http://pngimg.com/uploads/star/star_PNG1588.png" class="hidden" id="favorite"></p>
+
+                    <hr class="break hidden">
+
+                    <div class="searchWrapper">
+                        
+                            <input type="text" name="search" class="searchBar" value="" placeholder="Search For Any Artist" onfocus="this.placeholder = ''">
+                            <input type="submit" class="searchBtn" value="SEARCH">
+                        
+
+                    </div>
+                    <hr class="break hidden">
+        </div>
+        <div class="searchResultsSection">
+            <h2 class="resultsTitle hidden">Search Results:</h2>
+            <div class="searchResults">
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

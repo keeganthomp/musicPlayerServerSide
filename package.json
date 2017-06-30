@@ -1,0 +1,30 @@
+{
+  "name": "soundclouddb",
+  "version": "1.0.0",
+  "description": "This is a application built using HTML, CSS, vanilla JS, the Soundcloud API, Sequalizer ORM, and a postgres to store the user's played artist's.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-mustache": "^1.0.3",
+    "express-validator": "^3.2.0",
+    "mustache-express": "^1.2.5",
+    "pg": "^6.4.0",
+    "sequelize": "^4.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keeganthomp/musicPlayerServerSide.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keeganthomp/musicPlayerServerSide/issues"
+  },
+  "homepage": "https://github.com/keeganthomp/musicPlayerServerSide#readme"
+}

@@ -5,6 +5,9 @@ var button = document.querySelector(".searchBtn");
 var searchInput = document.querySelector(".searchBar");
 var submitBtn = document.querySelector(".searchBtn");
 var searchResultsContainer = document.querySelector(".searchResults");
+var currentUserImg;
+var currentArtist;
+var currentSong;
 var finalResults = [];
 var trackContainers = [];
 
@@ -22,9 +25,13 @@ submitBtn.addEventListener("click", function() {
         for (let j = i; j < trackContainers.length; j++) {
           trackContainers[j].addEventListener("click", function() {
             var pickedSong = finalResults[i].stream_url + "?" + APIKEY;
-            showElement("#audioController")
+            currentUserImg = finalResults[i].artwork_url;
+            showElement("#audioController");
             playClickedSong(pickedSong);
-            updateNowPlaying(finalResults[i].user.username, finalResults[i].title);
+            updateNowPlaying(
+              (currentArtist = finalResults[i].user.username),
+              (currentSong = finalResults[i].title)
+            );
           });
         }
       }
@@ -32,6 +39,7 @@ submitBtn.addEventListener("click", function() {
     .catch(function() {
       console.log("Nothing Here");
     });
+  saveFavorite();
 });
 
 function createTracks(data) {
@@ -41,11 +49,14 @@ function createTracks(data) {
     searchResultsContainer.appendChild(createTrackWrapper);
     trackContainers.push(createTrackWrapper);
 
+    var createFavoriteDiv = document.createElement("div");
+    createFavoriteDiv.classList.add("favoriteDiv");
+    searchResultsContainer.appendChild(createFavoriteDiv);
+
     var createPlayButton = document.createElement("p");
     createPlayButton.classList.add("playButton");
     createTrackWrapper.appendChild(createPlayButton);
     createPlayButton.innerHTML = "PLAY";
-    
 
     var createArtistImage = document.createElement("img");
     createArtistImage.classList.add("userImg");
@@ -68,6 +79,7 @@ function createTracks(data) {
     createUserName.innerHTML = data.user.username;
   }
   makeTrackWrapper();
+  // lookForFavorites();
   showElement(".resultsTitle");
 }
 
@@ -76,11 +88,13 @@ function playClickedSong(song) {
   audioSource.src = song;
   var audioController = document.querySelector("#audioController");
   audioController.load();
+  showElement("#favorite");
 }
 
-function updateNowPlaying(currentArtist, currentSong){
-    document.querySelector("#artistPlaying").innerHTML = "Now Playing: " + currentArtist + " ";
-    document.querySelector("#songPlayingNow").innerHTML = currentSong;
+function updateNowPlaying(currentArtist, currentSong) {
+  document.querySelector("#artistPlaying").innerHTML =
+    "Now Playing: " + currentArtist + " ";
+  document.querySelector("#songPlayingNow").innerHTML = currentSong;
 }
 
 function clearResults() {
@@ -97,16 +111,53 @@ function moveTitleUp() {
   title.style.margin = "4% 0 0 0";
 }
 
-function showPlayButton(){
+function showPlayButton() {
   var playBtn = document.querySelectorAll(".playButton");
   var titleImg = document.querySelectorAll(".userImg");
   console.log("working");
-  for(let i = 0; i <titleImg.length; i++){
-    titleImg[i].addEventListener("mouseenter", function(){
+  for (let i = 0; i < titleImg.length; i++) {
+    titleImg[i].addEventListener("mouseenter", function() {
       alert("You entered a track");
       console.log("yayy");
-    })
+    });
   }
 }
 
-showPlayButton();
+function saveFavorite() {
+  var favoriteButton = document.querySelector("#favorite");
+  favoriteButton.addEventListener("click", function() {
+    console.log("aduio Source:", audioSource);
+    console.log("Current Artist:", currentArtist);
+    console.log("Current Song:", currentSong);
+    console.log("Current Img:", currentUserImg);
+    axios
+      .post("/favorites", {
+        audioFile: audioSource.src,
+        artist: currentArtist,
+        song: currentSong,
+        image: currentUserImg
+      })
+      .then(function(response) {
+        console.log(response);
+        // window.location.reload();
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  });
+}
+
+(function playFavoriteSong() {
+  var favorites = document.querySelectorAll(".trackWrapperFav");
+  for (let i = 0; i < favorites.length; i++) {
+    favorites[i].addEventListener("click", function() {
+      var clickedSong = favorites[i].querySelector("#audioSourceFile").innerHTML;
+      var audioSource = document.querySelector("#audioSourceFav");
+      audioSource.src = clickedSong;
+      var nowPlaying = document.querySelector("")
+      var audioController = document.querySelector("#audioControllerFav");
+      audioController.load();
+    });
+  }
+})();
+
