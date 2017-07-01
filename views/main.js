@@ -81,6 +81,7 @@ function createTracks(data) {
   makeTrackWrapper();
   // lookForFavorites();
   showElement(".resultsTitle");
+  
 }
 
 function playClickedSong(song) {
@@ -89,6 +90,7 @@ function playClickedSong(song) {
   var audioController = document.querySelector("#audioController");
   audioController.load();
   showElement("#favorite");
+  showElement(".favTitle");
 }
 
 function updateNowPlaying(currentArtist, currentSong) {
@@ -161,3 +163,14 @@ function saveFavorite() {
   }
 })();
 
+(function rotateFavorite(){
+  var favLink = document.querySelector("#favorite");
+  favLink.addEventListener("click", function(){
+    console.log("you clicked the star");
+    favLink.classList.add("rotate");
+    setTimeout(function(){
+      favLink.classList.remove("rotate");
+    confirm("You added " + currentSong + " to your favorites");      
+    }, 1000);
+  })
+})();

@@ -1,6 +1,6 @@
 body {
   /*background-image: url('http://www.matcl.com/files/attach/images/2791205/856/808/002/441e661e5479d7b9f88afe3deb765110.png');*/
-  background: gray;
+  background: lightseagreen;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #f5f5f5;
@@ -13,6 +13,35 @@ body {
   width: 2rem;
   margin-bottom: -2%;
   transition: all 1s;
+}
+
+.favLink {
+  margin-top:12px;
+  padding: 1% 2% 0 2%;
+  text-decoration: none;
+  border: 1px solid white;  
+  border-radius: 5px;
+  height: 1.6rem;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 1s;
+  
+}
+
+.favLink:hover {
+  background: gold;
+  transition: all 1s;
+}
+
+.favLink:visited {
+  color:white;
+  text-decoration: none;
+}
+
+.favTitle {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .rotate {
@@ -100,6 +129,7 @@ audio {
 .searchWrapper {
   width: 75%;
   display: flex;
+  align-items: baseline;
   text-align: center;
   margin: 0 auto;
   margin: 2% auto 2% auto;
